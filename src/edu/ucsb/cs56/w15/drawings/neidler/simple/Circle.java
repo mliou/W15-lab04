@@ -27,5 +27,4 @@ public class Circle extends java.awt.geom.Ellipse2D.Double implements java.awt.S
         super( x - r, y - r,   /* upper left corner of bounding box */
                r * 2,  r * 2); /* width and height are double the radius */
     }
-    
 }
