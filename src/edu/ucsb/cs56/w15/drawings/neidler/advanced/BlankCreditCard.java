@@ -9,6 +9,7 @@ import java.awt.geom.Rectangle2D;
 
 /**
  * Created by nick on 2/1/15.
+ * Draws a simple credit card
  */
 public class BlankCreditCard extends GeneralPathWrapper implements Shape {
     /**
@@ -21,27 +22,11 @@ public class BlankCreditCard extends GeneralPathWrapper implements Shape {
      */
     public BlankCreditCard(double x, double y, double width, double height)
     {
-        double firstStoryHeight = .75 * height;
-        double roofHeight = height - firstStoryHeight;
+        Rectangle2D.Double cardBody = new Rectangle2D.Double(x, y, width, height);
+        Rectangle2D.Double magneticStrip = new Rectangle2D.Double(x, y + (3*height) / 5, width, height / 5);
 
-        double firstStoryUpperLeftY = y + roofHeight;
-
-        Rectangle2D.Double firstStory =
-                new Rectangle2D.Double(x, firstStoryUpperLeftY ,
-                        width, firstStoryHeight);
-
-        Line2D.Double leftRoof =
-                new Line2D.Double (x, y + roofHeight,
-                        x + width/2.0, y);
-
-        Line2D.Double rightRoof =
-                new Line2D.Double (x + width/2.0, y,
-                        x + width, y + roofHeight);
-
-        GeneralPath wholeHouse = this.get();
-        wholeHouse.append(firstStory, false);
-        wholeHouse.append(leftRoof, false);
-        wholeHouse.append(rightRoof, false);
-
+        GeneralPath wholeCard = this.get();
+        wholeCard.append(cardBody, false);
+        wholeCard.append(magneticStrip, false);
     }
 }
