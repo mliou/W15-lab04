@@ -17,7 +17,7 @@ import edu.ucsb.cs56.w15.drawings.utilities.ShapeTransforms;
 import edu.ucsb.cs56.w15.drawings.utilities.GeneralPathWrapper;
 
 /**
-   A vector drawing of a house that implements
+   A vector drawing of a Robot that implements
    the Shape interface, and so can be drawn, as well as
    rotated, scaled, etc.
       
@@ -32,8 +32,8 @@ public class Robot extends GeneralPathWrapper implements Shape
 
        @param x x coord of upper left corner of the head
        @param y y coord of upper left corner of the head
-       @param width width of the house
-       @param height of house (including first story and second story)
+       @param width width of the Robot
+       @param height of Robot (including first story and second story)
      */
     public Robot(double x, double y, double width, double height)
     {

@@ -60,17 +60,17 @@ public class AllMyDrawings
 	
 	// Draw two houses with Windows
 	
-	//HouseWithWindows hw1 = new HouseWithWindows(50,350,40,75);
-	//HouseWithWindows hw2 = new HouseWithWindows(200,350,200,100);
+	RobotWithFeatures hw1 = new RobotWithFeatures(50,350,40,75,10);
+	RobotWithFeatures hw2 = new RobotWithFeatures(200,350,200,10,10);
 	
-	//g2.draw(hw1);
-	//g2.setColor(new Color(0x8F00FF)); g2.draw(hw2);
+	g2.draw(hw1);
+	g2.setColor(new Color(0x8F00FF)); g2.draw(hw2);
 	
 	// @@@ FINALLY, SIGN AND LABEL YOUR DRAWING
 	
 	g2.setStroke(orig);
 	g2.setColor(Color.BLACK); 
-	g2.drawString("A few houses by Phill Conrad", 20,20);
+	g2.drawString("A few Robots by Victor Porter", 20,20);
     }
 
 
@@ -118,8 +118,8 @@ public class AllMyDrawings
 	
 	// Draw two houses with Windows
 	
-	HouseWithWindows hw1 = new HouseWithWindows(50,350,40,75);
-	HouseWithWindows hw2 = new HouseWithWindows(200,350,200,100);
+	RobotWithFeatures hw1 = new RobotWithFeatures(50,350,40,75,10);
+	RobotWithFeatures hw2 = new RobotWithFeatures(200,350,200,100,10);
 	
 	g2.draw(hw1);
 	g2.setColor(new Color(0x8F00FF)); 
@@ -133,7 +133,7 @@ public class AllMyDrawings
 	
 	g2.setStroke(orig);
 	g2.setColor(Color.BLACK); 
-	g2.drawString("A bunch of Robots and a few houses by Victor Porter", 20,20);
+	g2.drawString("A bunch of Robots by Victor Porter", 20,20);
     }
   
     /** Draw a different picture with a few houses and coffee cups
@@ -143,7 +143,7 @@ public class AllMyDrawings
 	
 	// label the drawing
 	
-	g2.drawString("A bunch of Coffee Cups by Phill Conrad", 20,20);
+	g2.drawString("A bunch of Robots by Victor Porter", 20,20);
 
 	
 	// Draw some coffee cups.
