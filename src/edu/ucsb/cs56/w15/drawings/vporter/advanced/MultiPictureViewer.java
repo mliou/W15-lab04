@@ -28,10 +28,10 @@ public class MultiPictureViewer
        // Set the size to whatever size you like (width, height)
        // For projects you turn in, lets not get any bigger than 640,480
        
-       frame.setSize(640,480); // @@@ MODIFY THIS LINE IF YOU LIKE
+       frame.setSize(1000,500); // @@@ MODIFY THIS LINE IF YOU LIKE
        
        // Set your own title
-       frame.setTitle("Vic's First Drawing"); // @@@ MODIFY THIS LINE
+       frame.setTitle("Vic's Robot Creations"); // @@@ MODIFY THIS LINE
        
        // Always do this so that the red X (or red circle) works
        // to close the window. 
