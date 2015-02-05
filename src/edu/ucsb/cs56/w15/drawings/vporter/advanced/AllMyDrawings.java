@@ -113,7 +113,9 @@ public class AllMyDrawings
     public static void drawPicture3(Graphics2D g2) {
 	
 	// Add caption for drawing 3
-	
+	Stroke orig=g2.getStroke();
+	g2.setStroke(orig);
+        g2.setColor(Color.BLACK);	
 	g2.drawString("The Robot Army by Victor Porter", 20,20);
 
 
