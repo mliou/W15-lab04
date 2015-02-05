@@ -63,13 +63,14 @@ public class AllMyDrawings
     }
 
 
-    /** Draw a Colorful Robot Evolution
+    /** Draw a Colorful Robot Rainbow
      */
     public static void drawPicture2(Graphics2D g2) {
 	
 	//
 	Random rand = new Random();
     int r, g, b;
+    Shape h3;
 
 	Stroke thick = new BasicStroke (2.0f, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL);       
 	Stroke orig=g2.getStroke();
@@ -87,11 +88,15 @@ public class AllMyDrawings
 	    b = rand.nextInt(200);
 	    Color randomColor = new Color(r, g, b);
 	    g2.setColor(randomColor);
-		g2.draw(myRobotArmy.get(i));
+
+		if(i%2 == 0) {
+			h3 = ShapeTransforms.rotatedCopyOf(test, Math.PI/4.0);
+			g2.draw(h3); }
+		else g2.draw(myRobotArmy.get(i));
 		positiony = positiony + 50;
-		if(positiony >= 500) {
+		if(positiony >= 400) {
 			positiony = 50;
-			positionx += 50;
+			positionx += 100;
 		}
 	}	
 
@@ -99,7 +104,7 @@ public class AllMyDrawings
 	orig=g2.getStroke();
 	g2.setStroke(orig);
 	g2.setColor(Color.BLACK); 
-	g2.drawString("Robot Evolution by Victor Porter", 20,20);
+	g2.drawString("Robot Rainbow by Victor Porter", 20,20);
     }
   
 

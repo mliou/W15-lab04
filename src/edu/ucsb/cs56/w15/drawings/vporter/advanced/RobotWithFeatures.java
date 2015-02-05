@@ -22,7 +22,12 @@ import edu.ucsb.cs56.w15.drawings.utilities.GeneralPathWrapper;
 public class RobotWithFeatures extends Robot implements Shape
 {
     /**
-     * Constructor for objects of class RobotWithFeatures
+       Constructor
+
+       @param x x coord of upper left corner of the head
+       @param y y coord of upper left corner of the head
+       @param height of Robot (from bottom of legs to the top of head)
+       @param antennaeHeight The height of the robots head antennae
      */
     public RobotWithFeatures(double x, double y, double height, double antennaeHeight) {
 
@@ -45,7 +50,7 @@ public class RobotWithFeatures extends Robot implements Shape
            new Rectangle2D.Double (x + (.1 * height), y - antennaeHeight, .25 * .25 * height, antennaeHeight);
 
     //Add new features to the Generalpath instance for drawing
-           
+
     GeneralPath wholeRobot = this.get();
     wholeRobot.append(button1, false);
     wholeRobot.append(button2, false);

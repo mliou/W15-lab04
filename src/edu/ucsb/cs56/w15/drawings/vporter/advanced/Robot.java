@@ -19,7 +19,7 @@ import edu.ucsb.cs56.w15.drawings.utilities.GeneralPathWrapper;
    rotated, scaled, etc.
       
    @author Victor Porter 
-   @version for CS56, Winter 11, UCSB
+   @version for CS56, Winter 15, UCSB
    
 */
 public class Robot extends GeneralPathWrapper implements Shape
