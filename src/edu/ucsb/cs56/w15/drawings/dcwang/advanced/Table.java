@@ -19,8 +19,8 @@ import edu.ucsb.cs56.w15.drawings.utilities.GeneralPathWrapper;
    the Shape interface, and so can be drawn, as well as
    rotated, scaled, etc.
       
-   @author Phill Conrad 
-   @version for CS56, Winter 11, UCSB
+   @author Derek Wang 
+   @version for CS56, Winter 15, UCSB
    
 */
 public class Table extends GeneralPathWrapper implements Shape
@@ -33,44 +33,37 @@ public class Table extends GeneralPathWrapper implements Shape
        @param width width of the house
        @param length length of the table 
      */
-    public House(double x, double y, double width, double length)
+    public Table(double x, double y, double width, double length)
     {
     
         // Rather than having to scale at the end, we can just
         // draw things the right way to begin with, using the
-        // x, y, width and height.   If you haven't already
+        // x, y, width and length.   If you haven't already
         // hard coded a particular drawing, this may be an easier
         // way.
         
-        double topleftx = .75 * height;
-        double roofHeight = height - firstStoryHeight;
-        
-        double firstStoryUpperLeftY = y + roofHeight;
-        
-        // Make the first story
-        
-        Rectangle2D.Double firstStory = 
-            new Rectangle2D.Double(x, firstStoryUpperLeftY ,
-                          width, firstStoryHeight);
-                          
-        // make the roof.   Remember that y goes DOWN the page,
-        // so we ADD to y to get a "lower" value on the screen
-        
-        Line2D.Double leftRoof = 
-            new Line2D.Double (x, y + roofHeight,
-                               x + width/2.0, y);
-                               
-        Line2D.Double rightRoof =
-            new Line2D.Double (x + width/2.0, y,
-                               x + width, y + roofHeight);
+	double legLength = (width+length)/2;
 
-        // put the whole house together
+	Line2D.Double left  = new Line2D.Double(x,y,x+width,y-width);
+	Line2D.Double top = new Line2D.Double(x+width,y-width, x+width+length, y-width);
+	Line2D.Double right = new Line2D.Double(x+width+length, y-width, x+length, y);
+	Line2D.Double bottom = new Line2D.Double(x+length, y, x, y);
+	Line2D.Double leg1 = new Line2D.Double (x,y,x,y+legLength);
+	Line2D.Double leg2 = new Line2D.Double(x+width, y, x+width, y-width+legLength);
+	Line2D.Double leg3 = new Line2D.Double(x+length,y,x+length,y+legLength);
+	Line2D.Double leg4 = new Line2D.Double(x+width+length,y-width,x+width+length,y-width+legLength);
+
+        // put the whole table together
        
-        GeneralPath wholeHouse = this.get();
-        wholeHouse.append(firstStory, false);
-        wholeHouse.append(leftRoof, false);
-        wholeHouse.append(rightRoof, false); 
-        
+        GeneralPath wholeTable = this.get();
+        wholeTable.append(left, false);
+        wholeTable.append(top, false);
+        wholeTable.append(right, false); 
+	wholeTable.append(bottom, false);
+	wholeTable.append(leg1, false);
+	wholeTable.append(leg2, false);
+	wholeTable.append(leg3, false);
+	wholeTable.append(leg4, false);
     }
 
 }
