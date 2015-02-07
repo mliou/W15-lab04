@@ -26,7 +26,7 @@ import edu.ucsb.cs56.w15.drawings.utilities.GeneralPathWrapper;
 public class Table extends GeneralPathWrapper implements Shape
 {
     /**
-       Constructor
+       Constructor for Table object
 
        @param x x coord of lower left corner of table
        @param y y coord of lower left corner of table

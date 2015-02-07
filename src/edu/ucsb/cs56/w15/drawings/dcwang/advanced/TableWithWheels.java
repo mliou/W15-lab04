@@ -15,7 +15,7 @@ import java.awt.geom.AffineTransform;
 import edu.ucsb.cs56.w15.drawings.utilities.ShapeTransforms;
 import edu.ucsb.cs56.w15.drawings.utilities.GeneralPathWrapper;
 /**
-   A House
+   A Table with wheels
       
    @author Derek Wang 
    @version for CS56, W15, UCSB, 02/23/2011
@@ -24,7 +24,7 @@ import edu.ucsb.cs56.w15.drawings.utilities.GeneralPathWrapper;
 public class TableWithWheels extends Table implements Shape
 {
     /**
-     * Constructor for objects of class Table
+     * Constructor for objects of class TableWithWheels
      */
     public TableWithWheels(double x, double y, double width, double length)
     {
