@@ -81,7 +81,7 @@ public class AllMyDrawings
 
 	// Draw some boats.
 	
-	Boat large = new Boat(100,50,225,150);
+	Boat large = new Boat(100,200,225,150);
 	Boat smallCC = new Boat(20,50,40,30);
 	Boat tallSkinny = new Boat(20,150,20,40);
 	Boat shortFat = new Boat(20,250,40,20);
@@ -149,8 +149,8 @@ public class AllMyDrawings
 	
 	// Draw some boats.
 	
-       Boat large = new Boat(100,50,225,150);
-       Boat smallCC = new Boat(20,50,40,30);
+       Boat large = new Boat(100,250,225,150);
+       Boat smallCC = new Boat(20,250,40,30);
        
        g2.setColor(Color.RED);     g2.draw(large);
        g2.setColor(Color.GREEN);   g2.draw(smallCC);
