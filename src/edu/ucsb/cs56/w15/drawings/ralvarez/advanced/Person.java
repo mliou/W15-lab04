@@ -48,11 +48,11 @@ public class Person extends GeneralPathWrapper implements Shape {
 	
 	//make the right arm
         Line2D.Double Rarm = 
-            new Line2D.Double (Jx, Jy+rad, Jx+rad, Jy+diam+.5*rad);
+            new Line2D.Double (Jx, Jy+.1*height, Jx+rad, Jy+diam+.1*height);
 	
 	//make the left arm
         Line2D.Double Larm = 
-            new Line2D.Double (Jx, Jy+ rad, Jx-rad , Jy+diam+.5*rad);
+            new Line2D.Double (Jx, Jy+ .1*height, Jx-rad , Jy+diam+.1*height);
 
 
 	//make the right leg
