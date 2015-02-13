@@ -19,14 +19,15 @@ import edu.ucsb.cs56.w15.drawings.utilities.GeneralPathWrapper;
 /**
  * A class with static methods for drawing various pictures
  * 
- * @author Phill Conrad 
+ * @author Phill Conrad
+ * @author Zak Blake 
  * @version for CS10, lab06, Spring 2009
  */
 
 
 public class AllMyDrawings
 {
-    /** Draw a picture with a few houses 
+    /** Draw a picture of some Shovels 
      */
 
     public static void drawPicture1(Graphics2D g2) {
@@ -53,7 +54,7 @@ public class AllMyDrawings
     }
 
 
-    /** Draw a picture with a few houses and coffee cups
+    /** Draw a picture with a few more shovels
      */
     public static void drawPicture2(Graphics2D g2) {
 
@@ -124,7 +125,7 @@ public class AllMyDrawings
 	g2.drawString("More of Zak's Shovels", 20,20);
     }
   
-    /** Draw a different picture with a few houses and coffee cups
+    /** Draw a different picture with 3 nice shovels
      */
 
     public static void drawPicture3(Graphics2D g2) {
