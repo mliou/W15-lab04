@@ -3,6 +3,7 @@ package edu.ucsb.cs56.w15.drawings.vporter.advanced;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.awt.geom.Rectangle2D;
 
 public class AnimatedPictureViewer {
 
@@ -15,16 +16,16 @@ public class AnimatedPictureViewer {
     int xCoordinate = 100;
     int yCoordinate = 100;
     int size = 300;
-    int sizeChange = 1;
-    int xSpeed = 5;
     int antennaeSize = 10;
+    int antennaeSizeChange = 0;
 
     //Information for Robot 2
     int x2Coordinate = 700;
     int y2Coordinate = 100;
     int size2 = 300;
-    int size2Change = 1;
     int x2Speed = -5;
+
+    static int clickCount = 0;
 
     public static void main (String[] args) {
       new AnimatedPictureViewer().go();
@@ -39,23 +40,20 @@ public class AnimatedPictureViewer {
       frame.setVisible(true);
       
       frame.getContentPane().addMouseListener(new MouseAdapter() {
-        public void mouseEntered(MouseEvent e){
-        System.out.println("mouse entered");
-          anim = new Animation();
-          anim.start();
-        }
-
-        public void mouseExited(MouseEvent e){        
-          System.out.println("Mouse exited");
-          anim.interrupt();
-          while (anim.isAlive()){}
-          anim = null;         
-          panel.repaint();        
-        }
 	public void mouseClicked(MouseEvent arg0) {
+	    clickCount++;
+
+	    if(clickCount%2 != 0 ) {
 	    System.out.println("here was a click ! ");
+	    anim = new Animation();
+	    anim.start();
 	    anim2 = new Animation2();
 	    anim2.start();
+	    }
+	    else {
+		anim.interrupt();
+		anim2.interrupt();
+	    }
 	}
       });
       
@@ -64,18 +62,25 @@ public class AnimatedPictureViewer {
     class DrawPanel extends JPanel {
        public void paintComponent(Graphics g) {
 
-        Graphics2D g2 = (Graphics2D) g;
+          Graphics2D g2 = (Graphics2D) g;
+	  Stroke thick = new BasicStroke(4.0f,BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL);
+          g2.setStroke(thick);
 
-         // Clear the panel first
-          g2.setColor(Color.GREEN);
+          g2.setColor(new Color(98,223,255));
           g2.fillRect(0,0,this.getWidth(), this.getHeight());
 
           g2.setColor(Color.BLACK);
           RobotWithFeatures test = new RobotWithFeatures(xCoordinate, yCoordinate, size, antennaeSize);
           g2.draw(test);
 	  RobotWithFeatures test2 = new RobotWithFeatures(x2Coordinate,y2Coordinate, size2, 10);
-	  g2.setColor(Color.PINK);
+	  g2.setColor(new Color(255,112,222));
 	  g2.draw(test2);
+
+	  Rectangle2D.Double ground = new Rectangle2D.Double(0,405,640,40);
+	  g2.setColor(Color.GREEN);
+	  g2.fill(ground);
+	  g2.draw(ground);
+	 
        }
     }
     
@@ -84,8 +89,12 @@ public class AnimatedPictureViewer {
         try {
           while (true) {
 
-	    if (x2Coordinate <= 400) { antennaeSize +=2; }
-	    if (antennaeSize == 100) { antennaeSize -=2;}
+	    if (x2Coordinate <= 400) {  antennaeSizeChange = 2; }
+	    if (antennaeSize >= 100) {  antennaeSizeChange = 0; }
+	    if (x2Speed > 0 && x2Coordinate >= 600) {  antennaeSizeChange = -2;}
+    
+	    antennaeSize += antennaeSizeChange;
+
             panel.repaint();
             Thread.sleep(50);
           }
@@ -106,8 +115,10 @@ public class AnimatedPictureViewer {
           while (true) {
             // Bounce off the walls
 
-            if (x2Coordinate >= 400) { x2Speed = -5; }
+            if (x2Coordinate >= 800) { x2Speed = -5; }
             if (x2Coordinate <= 400) { x2Speed = 0; }
+	    if (antennaeSize >= 100) { x2Speed = 5; }
+	    if (antennaeSize <= 10) { antennaeSizeChange = 0;}
 	           
             x2Coordinate += x2Speed;
     
