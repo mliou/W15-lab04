@@ -8,13 +8,24 @@ public class AnimatedPictureViewer {
 
     private DrawPanel panel = new DrawPanel();
     
-    private RobotWithFeatures Rob = new RobotWithFeatures(100, 100, 100, 100);
-    
-    Thread anim;   
-
+    Thread anim;  
+    Thread anim2;
+ 
+    //Information for Robot 1
     int xCoordinate = 100;
     int yCoordinate = 100;
-    int xSpeed;
+    int size = 300;
+    int sizeChange = 1;
+    int xSpeed = 5;
+    int antennaeSize = 10;
+
+    //Information for Robot 2
+    int x2Coordinate = 700;
+    int y2Coordinate = 100;
+    int size2 = 300;
+    int size2Change = 1;
+    int x2Speed = -5;
+
     public static void main (String[] args) {
       new AnimatedPictureViewer().go();
     }
@@ -41,6 +52,11 @@ public class AnimatedPictureViewer {
           anim = null;         
           panel.repaint();        
         }
+	public void mouseClicked(MouseEvent arg0) {
+	    System.out.println("here was a click ! ");
+	    anim2 = new Animation2();
+	    anim2.start();
+	}
       });
       
     } // go()
@@ -51,12 +67,15 @@ public class AnimatedPictureViewer {
         Graphics2D g2 = (Graphics2D) g;
 
          // Clear the panel first
-          g2.setColor(Color.white);
+          g2.setColor(Color.GREEN);
           g2.fillRect(0,0,this.getWidth(), this.getHeight());
 
-          g2.setColor(Color.RED);
-          RobotWithFeatures test = new RobotWithFeatures(xCoordinate, yCoordinate, 100, 100);
+          g2.setColor(Color.BLACK);
+          RobotWithFeatures test = new RobotWithFeatures(xCoordinate, yCoordinate, size, antennaeSize);
           g2.draw(test);
+	  RobotWithFeatures test2 = new RobotWithFeatures(x2Coordinate,y2Coordinate, size2, 10);
+	  g2.setColor(Color.PINK);
+	  g2.draw(test2);
        }
     }
     
@@ -64,12 +83,9 @@ public class AnimatedPictureViewer {
       public void run() {
         try {
           while (true) {
-            // Bounce off the walls
 
-            if (xCoordinate >= 400) { xSpeed = -5; }
-            if (xCoordinate <= 50) { xSpeed = 5; }
-            
-            xCoordinate += xSpeed;                
+	    if (x2Coordinate <= 400) { antennaeSize +=2; }
+	    if (antennaeSize == 100) { antennaeSize -=2;}
             panel.repaint();
             Thread.sleep(50);
           }
@@ -83,5 +99,31 @@ public class AnimatedPictureViewer {
         }
       }
     }
+
+    class Animation2 extends Thread {
+      public void run() {
+        try {
+          while (true) {
+            // Bounce off the walls
+
+            if (x2Coordinate >= 400) { x2Speed = -5; }
+            if (x2Coordinate <= 400) { x2Speed = 0; }
+	           
+            x2Coordinate += x2Speed;
+    
+            panel.repaint();
+            Thread.sleep(50);
+          }
+        } catch(Exception ex) {
+          if (ex instanceof InterruptedException) {
+            // Do nothing - expected on mouseExited
+          } else {
+            ex.printStackTrace();
+            System.exit(1);
+          }
+        }
+      }
+    }
+    
     
 }
