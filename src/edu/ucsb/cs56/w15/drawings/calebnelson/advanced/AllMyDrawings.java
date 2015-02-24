@@ -78,12 +78,12 @@ public class AllMyDrawings
      */
     public static void drawPicture2(Graphics2D g2) {
 
-	// Draw some coffee cups.
+	// Draw some stickmen.
 	
-	CoffeeCup large = new CoffeeCup(100,50,225,150);
-	CoffeeCup smallCC = new CoffeeCup(20,50,40,30);
-	CoffeeCup tallSkinny = new CoffeeCup(20,150,20,40);
-	CoffeeCup shortFat = new CoffeeCup(20,250,40,20);
+	Stickman large = new Stickman(100,50,225,150);
+	Stickman smallCC = new Stickman(20,50,40,30);
+	Stickman tallSkinny = new Stickman(20,150,20,40);
+	Stickman shortFat = new Stickman(20,250,40,20);
 	
 	g2.setColor(Color.RED);     g2.draw(large);
 	g2.setColor(Color.GREEN);   g2.draw(smallCC);
@@ -133,7 +133,7 @@ public class AllMyDrawings
 	
 	g2.setStroke(orig);
 	g2.setColor(Color.BLACK); 
-	g2.drawString("A bunch of Coffee Cups and a few faces by Caleb Nelson", 20,20);
+	g2.drawString("A bunch of stickmen and a few faces by Caleb Nelson", 20,20);
     }
   
     /** Draw a different picture with a few faces and coffee cups
@@ -143,13 +143,13 @@ public class AllMyDrawings
 	
 	// label the drawing
 	
-	g2.drawString("A bunch of Coffee Cups by Caleb Nelson", 20,20);
+	g2.drawString("A bunch of stickmen by Caleb Nelson", 20,20);
 
 	
-	// Draw some coffee cups.
+	// Draw some stickmen
 	
-       CoffeeCup large = new CoffeeCup(100,50,225,150);
-       CoffeeCup smallCC = new CoffeeCup(20,50,40,30);
+       Stickman large = new Stickman(100,50,225,150);
+       Stickman smallCC = new Stickman(20,50,40,30);
        
        g2.setColor(Color.RED);     g2.draw(large);
        g2.setColor(Color.GREEN);   g2.draw(smallCC);
